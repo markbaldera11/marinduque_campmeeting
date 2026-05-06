@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCLC Marinduque-Wide Camp Meeting 2026</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Poppins:wght@300;400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* CSS Variables tailored to a Jungle/Orange theme */
+        :root {
+            --primary-orange: #e65c00; /* Vibrant jungle tiger/sunset orange */
+            --accent-gold: #f9a826; /* Warm sunlight gold */
+            --accent-green: #2c5e1e; /* Deep canopy leaf green */
+            --nav-bg: rgba(44, 94, 30, 0.95); /* Lush jungle green for navigation */
+            --shadow-earth: #4a2c00; /* Dark earth brown */
+            --text-dark: #1b3320; /* Very dark green (almost black) for readability */
+            --text-light: #fff;
+        }
+
+        /* --- Page Background Setup --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-orange); /* Fallback */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            color: var(--text-dark);
+        }
+
+        /* Blurred Background Image */
+        .page-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image: url('Copy of CAMP MEETING PHONE.png'); /* Your uploaded image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(8px); /* Slight blur to make text readable */
+            transform: scale(1.1); /* Prevent blurred transparent edges */
+        }
+
+        /* Jungle & Orange Gradient Overlay */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Blending vibrant orange into deep jungle green */
+            background: linear-gradient(135deg, rgba(230, 92, 0, 0.65), rgba(44, 94, 30, 0.85));
+        }
+
+        /* --- Typography & Main Containers --- */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto 60px;
+            background: rgba(255, 255, 255, 0.92); /* Highly readable white/glass */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+            padding: 60px 50px;
+            border-radius: 24px; 
+            min-height: 60vh;
+            box-sizing: border-box;
+            opacity: 0;
+            animation: fadeInScale 0.8s ease forwards;
+            z-index: 10;
+            position: relative; 
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- Navigation --- */
+        .nav-wrapper {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            margin-top: 25px; 
+        }
+
+        nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 10px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 0.95em;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: popIn 0.5s ease forwards;
+        }
+
+        nav a:nth-child(1) { animation-delay: 0.8s; }
+        nav a:nth-child(2) { animation-delay: 0.9s; }
+        nav a:nth-child(3) { animation-delay: 1.0s; }
+        nav a:nth-child(4) { animation-delay: 1.1s; }
+        nav a:nth-child(5) { animation-delay: 1.2s; }
+        nav a:nth-child(6) { animation-delay: 1.3s; }
+        nav a:nth-child(7) { animation-delay: 1.4s; }
+
+        nav a i {
+            font-size: 1.1em;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--primary-orange);
+            color: var(--text-light);
+            box-shadow: 0 4px 10px rgba(230, 92, 0, 0.5);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+        nav a:hover i, nav a.active i {
+            transform: scale(1.1);
+        }
+
+        /* --- Poster-Matched Header Section --- */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px dashed rgba(230, 92, 0, 0.4);
+            transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.5s ease, padding 0.5s ease;
+            max-height: 800px;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        .header-section.hidden {
+            max-height: 0;
+            opacity: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .header-section > * {
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards;
+        }
+
+        .sclc-title {
+            color: var(--accent-green);
+            font-size: 1.8em;
+            margin-bottom: -10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 3px;
+            font-weight: 800;
+            animation-delay: 0.1s;
+        }
+
+        /* Thick stroke and shadow matching the poster logo */
+        .main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5em;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 0.95;
+            -webkit-text-stroke: 2.5px var(--primary-orange);
+            text-shadow: 5px 5px 0px var(--shadow-earth);
+            margin-top: 0;
+            margin-bottom: 25px;
+            animation-delay: 0.2s;
+            letter-spacing: -2px;
+        }
+
+        .year-highlight {
+            color: var(--accent-gold);
+            -webkit-text-stroke: 2.5px var(--shadow-earth);
+        }
+
+        /* Replicating the Text Lockups from the Poster */
+        .theme-display {
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid rgba(230, 92, 0, 0.3);
+            padding: 25px 20px;
+            border-radius: 15px;
+            margin: 0 auto 30px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            animation-delay: 0.3s;
+        }
+
+        .integrated {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-transform: lowercase;
+            letter-spacing: 1px;
+        }
+
+        .mission-big {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: #fff;
+            -webkit-text-stroke: 1.5px var(--accent-green);
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            letter-spacing: -2px;
+            margin: -10px 0 10px 0;
+        }
+
+        .grounded {
+            color: var(--accent-green);
+            font-weight: 700;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        .script-font {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2em;
+            color: var(--primary-orange);
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+            margin: 0 5px;
+            display: inline-block;
+            transform: rotate(-4deg);
+            text-transform: none;
+        }
+
+        .one-voice {
+            margin-top: 15px;
+            font-weight: 900;
+            font-size: 1.2em;
+            color: var(--text-dark);
+        }
+
+        .one-voice span {
+            font-size: 0.7em;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .venue-date { 
+            font-size: 1.1em;
+            color: #555;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation-delay: 0.4s; 
+        }
+
+        /* Tab Content Control */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .tab-content h2, 
+        .tab-content .schedule-title, 
+        .tab-content table tr, 
+        .tab-content .committee-grid, 
+        .tab-content .special-section {
+            opacity: 0; 
+        }
+
+        /* --- Schedule Tables --- */
+        .tab-content h2 {
+            color: var(--primary-orange);
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: left;
+            border-left: 6px solid var(--accent-green);
+            padding-left: 15px;
+        }
+
+        .schedule-title {
+            background: linear-gradient(135deg, var(--primary-orange), var(--accent-green));
+            color: var(--text-light);
+            padding: 12px 20px;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 0;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 35px;
+            background: var(--text-light);
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: none;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        table tr:last-child th, table tr:last-child td { border-bottom: none; }
+
+        th {
+            background-color: rgba(230, 92, 0, 0.1); /* Soft orange tint */
+            color: var(--accent-green);
+            width: 35%;
+            font-weight: 700;
+        }
+
+        td { color: var(--text-dark); font-weight: 500; }
+        table tr:hover td, table tr:hover th { background-color: rgba(44, 94, 30, 0.1); }
+
+        /* --- Committee Grid --- */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .committee-card {
+            background: var(--text-light);
+            border: 1px solid rgba(44, 94, 30, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .committee-card h4 {
+            color: var(--primary-orange);
+            border-bottom: 2px solid rgba(230, 92, 0, 0.3);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.1em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .committee-card p { margin: 5px 0; font-size: 0.95em; }
+        .committee-card strong { color: var(--accent-green); font-weight: 700; }
+        .committee-card span.role { color: var(--primary-orange); font-size: 0.85em; display: block; margin-top: 2px;}
+
+        /* --- Lyrics Sections --- */
+        .special-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(230, 92, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .special-section h2 {
+            text-align: center;
+            border-left: none;
+            padding-left: 0;
+            color: var(--primary-orange);
+        }
+
+        .lyrics {
+            text-align: center;
+            white-space: pre-wrap;
+            font-size: 1.1em;
+            color: var(--text-dark);
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* --- Bottom Footer --- */
+        .site-footer {
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            padding-bottom: 25px;
+            z-index: 101; 
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+            position: relative; 
+            padding-top: 20px;
+        }
+
+        .site-footer span {
+            color: var(--accent-gold); 
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 1050px) {
+            .nav-wrapper { margin-top: 10px; }
+        }
+
+        @media (max-width: 768px) {
+            .container { margin: 20px; padding: 30px 20px; border-radius: 16px; }
+            .main-title { font-size: 2.8em; -webkit-text-stroke: 1.5px var(--primary-orange); }
+            .mission-big { font-size: 2.5em; }
+            nav { padding: 8px; border-radius: 16px; }
+            nav a { padding: 8px 12px; font-size: 0.85em; border-radius: 8px; margin: 2px; }
+            th, td { display: block; width: 100%; box-sizing: border-box; }
+            th { border-bottom: none; padding-bottom: 5px; }
+            td { padding-top: 5px; padding-bottom: 20px; }
+            .site-footer { font-size: 0.75rem; padding-bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-background"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="nav-wrapper">
+        <nav>
+            <a class="nav-link active" data-target="home">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <a class="nav-link" data-target="wed">
+                <i class="fa-regular fa-calendar"></i>Wed(6)
+            </a>
+            <a class="nav-link" data-target="thu">
+                <i class="fa-regular fa-calendar-check"></i> Thu(7)
+            </a>
+            <a class="nav-link" data-target="fri">
+                <i class="fa-solid fa-calendar-day"></i> Fri(8)
+            </a>
+            <a class="nav-link" data-target="sab">
+                <i class="fa-solid fa-calendar"></i> Sat(9)
+            </a>
+            <a class="nav-link" data-target="songs">
+                <i class="fa-solid fa-music"></i> Songs
+            </a>
+        </nav>
+    </div>
+
+    <div class="container">
+        
+        <div class="header-section">
+            <h2 class="sclc-title">South-Central Luzon Conference</h2>
+            <h1 class="">MARINDUQUE<br>CAMP MEETING <span class="">2026</span></h1>
+            
+            <div class="theme-display">
+                <div class="integrated">Integrated for</div>
+                <div class="mission-big">MISSION</div>
+                <div class="grounded">
+                    Grounded in the <span class="script-font">Bible</span><br>
+                    and focused on the <span class="script-font">mission</span>
+                </div>
+                <div class="one-voice">OneVoice27<br><span>MISSION FOR ALL</span></div>
+            </div>
+
+            <div class="venue-date">
+                May 6 - 9, 2026<br>
+                Plaza Sta. Cruz, Marinduque
+            </div>
+        </div>
+
+        <div id="wed" class="tab-content">
+            <h2><i class="fa-regular fa-calendar" style="color:var(--primary-orange); margin-right: 10px;"></i>Wednesday, May 6, 2026</h2>
+
+            <h3 class="schedule-title">Assembly & Opening (4:30 PM - 9:00 PM)</h3>
+            <table>
+                <tr><th>4:30 PM</th><td>Motorcade Assembly @ Plaza Sta. Cruz, Marinduque</td></tr>
+                <tr><th>Parade Marshall</th><td>Nephtalie Agojo</td></tr>
+                <tr><th>6:30 PM</th><td>Assembly Time</td></tr>
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">OPENING CEREMONY (7:00 - 9:00 PM)</th></tr>
+                <tr><th>Entry of Delegates</th><td>Guest & Invitees</td></tr>
+                <tr><th>Masters of Ceremony</th><td>Pr. Joel Caspe & Mary Kristine Caspe</td></tr>
+                <tr><th>Singspiration</th><td>Gideon Orbe</td></tr>
+                <tr><th>Opening Song</th><td>Theme Song</td></tr>
+                <tr><th>Opening Prayer</th><td>Pr. Neil Patrick Carreon</td></tr>
+                <tr><th>Words of Welcome</th><td>Pr. Bon Co, Hon. Marissa Red-Martinez (Mayor), Hon. Melecio J. Go (Governor)</td></tr>
+                <tr><th>To Introduce the Speaker</th><td>Pr. Ernie Sariola</td></tr>
+                <tr><th>Musical Offering</th><td>Arvie Joyce M. Sales</td></tr>
+                <tr><th>Keynote Message</th><td><strong>Pr. Jubille S. Estrada</strong><br><span class="role">SCLC Executive Secretary</span></td></tr>
+                <tr><th>United Prayer</th><td>Mario Magalang, Melson Liwanagan, Virgilio Herrera, Jazzer Loto</td></tr>
+                <tr><th>Closing Song</th><td>Theme Song</td></tr>
+                <tr><th>Closing Prayer</th><td>Pr. Dave Villaruel</td></tr>
+                <tr><th>House Rules</th><td>Pr. Jubille Estrada</td></tr>
+                <tr><th>Declaration</th><td>Opening of Camp Meeting - Pr. Joshua Baldera</td></tr>
+            </table>
+        </div>
+
+        <div id="thu" class="tab-content">
+            <h2><i class="fa-regular fa-calendar-check" style="color:var(--primary-orange); margin-right: 10px;"></i>Thursday, May 7, 2026</h2>
+
+            <h3 class="schedule-title">Morning Devotional (8:00 AM - 9:00 AM)</h3>
+            <table>
+                <tr><th>Coordinator</th><td>Pr. Bon Co</td></tr>
+                <tr><th>Song Leaders / Pianist</th><td>Gideon Orbe / Melvic Pernia</td></tr>
+                <tr><th>Singspiration</th><td>Arlene Joy D. Sales</td></tr>
+                <tr><th>Opening Song</th><td>Theme Song</td></tr>
+                <tr><th>Opening Prayer</th><td>Olever Marte</td></tr>
+                <tr><th>Welcome Remarks</th><td>Pr. Graciano Cuizon Jr.</td></tr>
+                <tr><th>To Introduce the Speaker</th><td>Pr. Rhomel Bautista</td></tr>
+                <tr><th>Musical Offering</th><td>Abcde Dela Torre</td></tr>
+                <tr><th>Message</th><td><strong>Pr. Rodel Honorica</strong><br><span class="role">SCLC SS/PM Director</span></td></tr>
+                <tr><th>United Prayer</th><td>Tessie Manguera, Olever Olarte, Melvic Pernia, Neph Agojo</td></tr>
+                <tr><th>Closing Song & Prayer</th><td>Theme Song / Mario Magalang</td></tr>
+            </table>
+
+            <h3 class="schedule-title">Afternoon Sessions (1:30 PM - 4:00 PM)</h3>
+            <table>
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Plenary Session 3 (1:30 - 3:00 PM)</th></tr>
+                <tr><th>Welcome Remarks</th><td>Pr. Rosevelt Fortu</td></tr>
+                <tr><th>Topic</th><td>Stewardship Church Missional Program (SCMP)</td></tr>
+                <tr><th>Resource Speakers</th><td>Pr. Rhomel Bautista & Pr. Joshua Baldera</td></tr>
+                <tr><th>Message / Musical Offering</th><td>Pr. Graciano Cuizon Jr. / Jessen Sosa</td></tr>
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Breakout Sessions (3:00 - 4:00 PM)</th></tr>
+                <tr><th>Activity</th><td>Breakout Sessions by Department</td></tr>
+            </table>
+
+            <h3 class="schedule-title">Evening Program (7:00 PM - 9:00 PM)</h3>
+            <table>
+                <tr><th>Singspiration</th><td>Gideon Orbe</td></tr>
+                <tr><th>Opening Song</th><td>Theme Song</td></tr>
+                <tr><th>Opening Prayer</th><td>Tess Manguira</td></tr>
+                <tr><th>Welcome Remarks</th><td>Ariel Ramirez</td></tr>
+                <tr><th>To Introduce the Speaker</th><td>Pr. Graciano Cuizon Jr.</td></tr>
+                <tr><th>Musical Offering</th><td>Carol S. Marte</td></tr>
+                <tr><th>Message</th><td><strong>Pr. Ernie Sariola</strong><br><span class="role">SCLC Ministerial Secretary</span></td></tr>
+                <tr><th>United Prayer</th><td>Allan Orencio, Ben Costudio, Ongie Manguera, Dennis Pascual</td></tr>
+                <tr><th>Closing Song & Prayer</th><td>Theme Song / Danny Pascual</td></tr>
+            </table>
+        </div>
+
+        <div id="fri" class="tab-content">
+            <h2><i class="fa-solid fa-calendar-day" style="color:var(--primary-orange); margin-right: 10px;"></i>Friday, May 8, 2026</h2>
+
+            <h3 class="schedule-title">Morning Sessions (8:00 AM - 12:00 NN)</h3>
+            <table>
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Morning Devotional (8:00 - 9:00 AM)</th></tr>
+                <tr><th>Singspiration</th><td>Pamela Marie Herrera</td></tr>
+                <tr><th>Opening Prayer</th><td>Joselin Sales</td></tr>
+                <tr><th>Welcome Remarks</th><td>Pr. Rhomel Bautista</td></tr>
+                <tr><th>To Introduce the Speaker</th><td>Mary Kristine Caspe</td></tr>
+                <tr><th>Musical Offering</th><td>Jackylou Reynoso</td></tr>
+                <tr><th>Message</th><td><strong>Pr. Joel Caspe</strong><br><span class="role">SCLC NDR-IEL</span></td></tr>
+                <tr><th>United Prayer</th><td>Gideon Orbe, Selin Sales, Ver Herrera, Ricky Fidelino</td></tr>
+                <tr><th>Closing Prayer</th><td>Nory Dela Torre</td></tr>
+                
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Plenary Sessions 4 & 5 (9:00 - 11:00 AM)</th></tr>
+                <tr><th>Coordinator</th><td>Pr. Dave Villaruel</td></tr>
+                <tr><th>Resource Speaker</th><td><strong>Dr. Glenn Jade Mariano</strong></td></tr>
+                <tr><th>Topic</th><td><em>Last Generation Theology – Parts 1 & 2</em></td></tr>
+                
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Mid Day Meditation (11:00 - 12:00 NN)</th></tr>
+                <tr><th>Welcome Remarks</th><td>Pr. Neil Patrick Carreon</td></tr>
+                <tr><th>Musical Offering</th><td>Jerson Reynoso</td></tr>
+                <tr><th>Message</th><td><strong>Dr. Glenn Jade Mariano</strong></td></tr>
+                <tr><th>Closing Prayer</th><td>Jazzer Lotto</td></tr>
+            </table>
+
+            <h3 class="schedule-title">Afternoon & Evening (1:30 PM - 9:30 PM)</h3>
+            <table>
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Plenary Session 5 (1:30 - 3:00 PM)</th></tr>
+                <tr><th>Resource Speaker</th><td><strong>Dr. Glenn Jade Mariano</strong></td></tr>
+                <tr><th>Topic</th><td><em>"The Newness of the New Covenant in Hebrews 8:7-13"</em></td></tr>
+                <tr><th>3:00 - 4:00 PM</th><td>Breakout Session by department</td></tr>
+
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Vesper Worship (7:00 - 9:30 PM)</th></tr>
+                <tr><th>Singspiration</th><td>Pamela Marie Herrera</td></tr>
+                <tr><th>Opening Prayer</th><td>Neph Agojo</td></tr>
+                <tr><th>Welcome Remarks</th><td>Pr. Experejon Fegalan</td></tr>
+                <tr><th>To Introduce the Speaker</th><td>Rubini Vargas Jr.</td></tr>
+                <tr><th>Musical Offering</th><td>Young Couples Upper Marinduque</td></tr>
+                <tr><th>Message</th><td><strong>Josue Fofue Jr.</strong><br><span class="role">SLPUM Treasurer</span></td></tr>
+                <tr><th>United Prayer</th><td>Ricky Fedelino, Felix Estoy, Neph Agojo, Melson Liwanagan</td></tr>
+                <tr><th>Closing Prayer</th><td>Ernalds Garcia</td></tr>
+            </table>
+        </div>
+
+        <div id="sab" class="tab-content">
+            <h2><i class="fa-solid fa-star" style="color:var(--primary-orange); margin-right: 10px;"></i>Sabbath, May 9, 2026</h2>
+
+            <h3 class="schedule-title">Morning Services (8:00 AM - 12:00 NN)</h3>
+            <table>
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Sabbath School Service (8:00 AM)</th></tr>
+                <tr><th>Coordinator</th><td>Pr. Erniel Medina</td></tr>
+                <tr><th>Meditational Number</th><td>Jessen Sosa and Riogem Joi M. Ali</td></tr>
+                <tr><th>Opening Prayer</th><td>Kelvin Falmero</td></tr>
+                <tr><th>Welcome Remarks</th><td>Pr. Rodel Honorica</td></tr>
+                <tr><th>Special Feature</th><td>Selected Workers & Teacher</td></tr>
+                <tr><th>Resource Speaker</th><td>Mary Grace G. Fegalan</td></tr>
+                <tr><th>Childrens’ Ministries</th><td>Diovelyn Cajobe</td></tr>
+                <tr><th>Musical Offering</th><td>Adventist Men Marinduque</td></tr>
+                <tr><th>Lesson Review</th><td>Pr. Bon Co, Pr. Neil Patrick Carreon, Pr. Dave Villaruel</td></tr>
+                <tr><th>Closing Song & Prayer</th><td>“Paaralang Sabado ay Buhay” / Felix Estoy</td></tr>
+
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Church At Worship (10:30 AM)</th></tr>
+                <tr><th>Coordinator</th><td>Pr. Rodel Honorica</td></tr>
+                <tr><th>Welcome & Announcements</th><td>Pr. Erniel Medina</td></tr>
+                <tr><th>To Introduce the Speaker</th><td>Pr. Joshua Baldera</td></tr>
+                <tr><th>Call to Worship</th><td>Pr. Jubille Estrada</td></tr>
+                <tr><th>Introit / Sabbath Hymn</th><td>“Banal, Banal, Banal” / “Sabbath Naming Mahal”</td></tr>
+                <tr><th>Worship Through Giving</th><td>Josue Fofue Jr. / Prayer: Rubini Vargas Jr.</td></tr>
+                <tr><th>Offertory Music</th><td>“May Ulan ng Pagpapala”</td></tr>
+                <tr><th>Pastoral Prayer</th><td>Pr. Experejon Fegalan</td></tr>
+                <tr><th>The Spoken Word</th><td><strong>Pr. Gerardo Cajobe</strong><br><span class="role">SLPUM President</span></td></tr>
+                <tr><th>Anthem of Assurance</th><td>“Si Hesus Kay Lapit Nang Dumating”</td></tr>
+            </table>
+
+            <h3 class="schedule-title">Afternoon Services (1:30 PM - 4:30 PM)</h3>
+            <table>
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Music Festival (1:30 - 4:00 PM)</th></tr>
+                <tr><th>Coordinator</th><td>Pr. Ernie Sariola / Pr. Graciano Cuizon Jr</td></tr>
+                <tr><th>Opening Prayer</th><td>Jasper Basillo</td></tr>
+                <tr><th>Welcome Remarks</th><td>Pr. Rosevelt Fortu</td></tr>
+                <tr><th>Musical Offering</th><td>Adventist Youth Upper Marinduque</td></tr>
+                <tr><th>Area Mid-Year Report</th><td>Pr. Bon Co</td></tr>
+                <tr><th>Turn-over Ceremony</th><td>Pr. Bon V. Co & Pr. Dave Villaruel</td></tr>
+
+                <tr><th colspan="2" style="background-color: rgba(230, 92, 0, 0.15); text-align: center; font-weight: bold; padding: 10px;">Commitment Service (4:00 PM)</th></tr>
+                <tr><th>Welcome Remarks</th><td>Pr. Ernie Sariola</td></tr>
+                <tr><th>To Introduce the speaker</th><td>Pr. Jubille S. Estrada</td></tr>
+                <tr><th>Musical Offering</th><td>Adventist Youth Lower Marinduque</td></tr>
+                <tr><th>Commitment Message / Prayer</th><td><strong>Pr. Joshua M. Baldera</strong><br><span class="role">SCLC President</span></td></tr>
+                <tr><th>Closing Prayer</th><td>Pr. Joel Caspe</td></tr>
+                <tr><th>Coordinator</th><td>Pr. Roosevelt Fortu</td></tr>
+            </table>
+        </div>
+
+        <div id="committees" class="tab-content">
+            <h2><i class="fa-solid fa-users" style="color:var(--primary-orange); margin-right: 10px;"></i>Working Committees</h2>
+            <div class="schedule-title" style="border-radius: 12px; margin-bottom: 20px;">Meeting: 7 AM</div>
+            
+            <div class="committee-grid">
+                <div class="committee-card">
+                    <h4>Steering</h4>
+                    <p><strong>JM Baldera</strong><span class="role">Chairman</span></p>
+                    <p><strong>JS Estrada, RD Vargas, All Committee Chairpersons</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Program</h4>
+                    <p><strong>JS Estrada</strong><span class="role">Chairman</span></p>
+                    <p><strong>All Directors</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Housing & Accommodation</h4>
+                    <p><strong>BCo</strong><span class="role">Chairman</span></p>
+                    <p><strong>NCarreon</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Registration</h4>
+                    <p><strong>JS Estrada</strong><span class="role">Chairman</span></p>
+                    <p><strong>LB Ferrera, G De Asis, NM Benavidez, K Monsalve</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Music</h4>
+                    <p><strong>GCuizon Jr.</strong><span class="role">Chairman</span></p>
+                    <p><strong>Local Church Music leaders</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Pulpit / Physical Arrangement</h4>
+                    <p><strong>ESariola</strong><span class="role">Chairman</span></p>
+                    <p><strong>RL Bautista, JM Caspe</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Decoration</h4>
+                    <p><strong>Jhie Fegalan</strong><span class="role">Chairman</span></p>
+                    <p><strong>MKB Caspe, All local Church Women leaders</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Sports / Recreation</h4>
+                    <p><strong>RF Fortu</strong><span class="role">Chairman</span></p>
+                    <p><strong>EMedina</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Food</h4>
+                    <p><strong>RD Vargas Jr</strong><span class="role">Chairman</span></p>
+                    <p><strong>Cook Marinduque</strong></p>
+                    <p><strong>Imelda R. Herrera</strong><span class="role">Kitchen Chairman</span></p>
+                    <p><strong>Associate:</strong> Gemma Magalang</p>
+                    <p><strong>Budget/Purchaser:</strong> Rubini Vargas Jr., Princess Diwata Lazo, Jacquelin Victorio</p>
+                    <p><strong>Cooks:</strong> Mercy Estoy, Felix Estoy, Cristy Saporna, Violeta Sales, etc.</p>
+                </div>
+                <div class="committee-card">
+                    <h4>Audio-Visual & Streaming</h4>
+                    <p><strong>EMedina</strong><span class="role">Chairman</span></p>
+                    <p><strong>Media Team</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Health and Sanitation</h4>
+                    <p><strong>EM Fegalan</strong><span class="role">Chairman</span></p>
+                    <p><strong>Health Council</strong></p>
+                </div>
+                <div class="committee-card">
+                    <h4>Logistics, Security & Traffic</h4>
+                    <p><strong>Logistics Chair: Nicodem Guevara</strong></p>
+                    <p><strong>Marshall Chair: Nephtalie Agojo</strong></p>
+                    <p><strong>Security Chair: Dan Pascual / Ver Herrera</strong></p>
+                    <p><strong>Traffic Chair: Neph Agojo</strong></p>
+                    <p><strong>Motorcade Chair: Jazzer A. Loto, Ramil Quiogue</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="songs" class="tab-content">
+            <h2><i class="fa-solid fa-music" style="color:var(--primary-orange); margin-right: 10px;"></i>Camp Meeting Songs</h2>
+
+            <div class="special-section">
+                <h2>Theme Song: "Mission"</h2>
+                <div class="lyrics">
+1
+We’ve been called to speak boldly far and near
+Jesus is the only way 
+With a humble heart, let us do our part
+That’s our mission everyday
+
+Prophecies fulfilled, there’s no time to waste
+Let’s declare that Jesus saves
+Christ so loved the world that He gave his life
+This truth we shall proclaim
+
+<strong>Refrain</strong>
+Grounded in the Bible focus on the mission
+Till we see Him high in the clouds 
+Soon we’ll hear the trumpets 
+Thunder will be sounding 
+Here He comes the King of kings
+He descends in glory majesty and power
+What a joyful day that will be
+
+2
+We’ve been called to pray for the latter rain
+and to walk in unity 
+Hand in hand we stand, all across the land 
+Preaching for the world to see
+He’s the great I am,
+He is the Lord of lords
+Worthy of our highest praise 
+Wonders will be seen as the spirit leads 
+If only we remain
+
+<strong>Refrain</strong>
+Grounded in the Bible focus on the mission
+Till we see Him high in the clouds 
+Soon we’ll hear the trumpets 
+Thunder will be sounding 
+Here He comes the King of kings
+He descends in glory majesty and power
+What a joyful day that will be
+
+Grounded in the Bible focus on the mission
+Till we see Him high in the clouds 
+Soon we’ll hear the trumpets 
+Thunder will be sounding 
+Here He comes the King of kings
+He descends in glory majesty and power
+What a joyful day that will be
+                </div>
+            </div>
+
+            <div class="special-section">
+                <h2>Sabbath Naming Mahal</h2>
+                <div class="lyrics">
+Sabbath naming mahal,
+Panginoo'y sambahin.
+Kapayapaa't pananampalataya
+Ay angkin.
+
+Dakilang pag-ibig,
+Ang Sabbath ay hitik,
+Tanda na ang Panginoon
+Sa ati'y nakahilig.
+
+Kasama ang banal,
+Sa bundok ng Zion,
+Awit ng Sabbath
+Magpakailanman ay aawitin.
+                </div>
+            </div>
+
+            <div class="special-section">
+                <h2>Ang Ama Ay Papurihan</h2>
+                <div class="lyrics">
+Ang Ama ay papurihan,
+Anak, Espiritung Banal,
+Ng mga taong nilalang,
+At ng tanang Sanlangitan.
+                </div>
+            </div>
+
+            <div class="special-section">
+                <h2>Kay Jesus Kayo'y Sumamba</h2>
+                <div class="lyrics">
+Kay Jesus kayo‘y sumamba
+Buong sanlangitan,
+Ilabas ang diyadema,
+At Siya‘y putungan!
+Ilabas ang diyadema,
+At Siya‘y putungan!
+
+Kayong lahi ni Israel
+Mahina‘t iilan,
+Kayo ay magsisamba rin,
+At Siya‘y putungan!
+Kayo ay magsisamba rin,
+At Siya‘y putungan rin!
+
+Lahat ng tao sa lupa,
+Dapat ding gumalang,
+Sa Kanya‘y mangayupapa,
+At Siya‘y putungan!
+Sa Kanya‘y mangayupapa,
+At Siya‘y putungan!
+
+Tayo nawa‘y makasama
+Noong karamihan
+Sa Kanya‘y mangayupapa,
+At Siya‘y putungan!
+Sa Kanya‘y mangayupapa,
+At Siya‘y putungan!
+                </div>
+            </div>
+
+            <div class="special-section">
+                <h2>Si Hesus Kay Lapit Nang Dumating</h2>
+                <div class="lyrics">
+Mga tanda ay nagsasabi, Hesus muling darating! Sala at lumbay ay papawiin;
+anak N' ya ay kukunin. Kaligtasan ba ay iyong ipinababatid, Salita ng Diyos ikinabubuhay?
+Sa biyaya N'ya, manghawak hanggang wakas Si Hesus Kay lapit nang dumating!
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="site-footer">
+        © 2026 | SCLC Marinduque-Wide Camp Meeting | <span>Plaza Sta. Cruz</span>
+    </div>
+
+    <script>
+        // Function to trigger cascading animations inside a target tab
+        function animateTabElements(targetId) {
+            const elementsToAnimate = document.querySelectorAll(
+                `#${targetId} h2, #${targetId} .schedule-title, #${targetId} table tr, #${targetId} .committee-card, #${targetId} .special-section`
+            );
+            
+            elementsToAnimate.forEach((el, index) => {
+                el.style.animation = 'none'; // reset animation
+                el.offsetHeight; // trigger browser reflow
+                // add staggered delay so they cascade down nicely
+                el.style.animation = `fadeSlideUp 0.5s ease forwards ${index * 0.08}s`; 
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.nav-link');
+            const tabs = document.querySelectorAll('.tab-content');
+            const headerSection = document.querySelector('.header-section');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.hasAttribute('target') && this.getAttribute('target') === '_blank') {
+                        return;
+                    }
+
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-target');
+
+                    // 1. Show or hide the header based on whether "home" was clicked
+                    if (targetId === 'home') {
+                        if (headerSection) headerSection.classList.remove('hidden');
+                    } else {
+                        if (headerSection) headerSection.classList.add('hidden');
+                    }
+                    
+                    // 2. Remove active class from all links and hide all tabs
+                    links.forEach(l => l.classList.remove('active'));
+                    tabs.forEach(t => t.classList.remove('active'));
+
+                    // 3. Add active class to the link you just clicked
+                    this.classList.add('active');
+
+                    // 4. Find the matching 'id' and add the active class to show it
+                    if (targetId && targetId !== 'home') {
+                        const targetElement = document.getElementById(targetId);
+                        if(targetElement) {
+                            targetElement.classList.add('active');
+                            animateTabElements(targetId);
+                        }
+                    }
+
+                    // 5. Smooth scroll to the top of the container when a tab is clicked
+                    window.scrollTo({
+                        top: document.querySelector('.container').offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
